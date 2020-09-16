@@ -3,7 +3,6 @@ exports.handler = async function (event, context) {
     console.log(event.path);
     const path = event.path.replace(/\.netlify\/functions\/[^/]+/, "");
     const segments = path.split("/").filter((e) => e);
-    console.log(segments);
     if (segments.length === 1) {
       return {
         statusCode: 200,

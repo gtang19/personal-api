@@ -3,7 +3,7 @@ exports.handler = async function (event, context) {
     const path = event.path.replace(/\.netlify\/functions\/[^/]+/, "");
     const segments = path.split("/").filter((e) => e);
     if (segments.length > 1) {
-      if (isNaN(segements[1])) {
+      if (isNaN(segments[1])) {
         throw "Please enter a number to multiply";
       }
       return {
