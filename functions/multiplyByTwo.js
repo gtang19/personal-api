@@ -3,6 +3,9 @@ exports.handler = async function (event, context) {
     const path = event.path.replace(/\.netlify\/functions\/[^/]+/, "");
     const segments = path.split("/").filter((e) => e);
     if (segments.length > 1) {
+      if (isNaN(segements[1])) {
+        throw "Please enter a number to multiply";
+      }
       return {
         statusCode: 200,
         body: JSON.stringify({
@@ -10,7 +13,7 @@ exports.handler = async function (event, context) {
         }),
       };
     } else {
-      throw "Please enter a whole number to multiply";
+      throw "Please enter a number to multiply";
     }
   } catch (err) {
     return {
